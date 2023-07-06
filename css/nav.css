@@ -1,0 +1,22 @@
+.barraNav {
+    width: 20%;
+    background-color: #2b8ace;
+    height: 100%;
+    position: fixed;
+
+  }
+
+  .barraNav a{
+    border:  1px solid black;
+    border-collapse: collapse;
+    display: block;
+    padding-block: 20px;
+    margin-top: 5px;
+    text-align: center;
+    color:aliceblue;
+    border-radius: 5px;
+  }
+  .barraNav a:hover{
+    background-color: black;
+  }
+   
