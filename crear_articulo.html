@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>Formulario de Creación de Artículo</title>
   <link rel="stylesheet" type="text/css" href="css/articulo.css">
+  <link rel="stylesheet" href="css/universal.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/nav.css">
 </head>
 <body>
-  <div class="login-container">
-    <h2>Formulario de Creación de Artículo</h2>
+  <header>
+    <div id="nombreUsuario">Administrador</div>
+    <img src="img/LogoScherf.jpg" alt="Logo de la empresa">
+  </header>
+    
+  <div class="barraNav">
+    <ul>
+      <li class="botonNav"><a href="inicio.php">Inicio</a></li>
+      <li class="botonNav"><a  href="entregaMercaderia.php">Agregar Venta</a></li>
+      <li class="botonNav"><a  href="devolucionMercaderia.php">Pago Venta</a></li>
+      <li class="botonNav"><a href="nuevo_usuario.html">Crear Nuevo Usuario</a></li>
+      <li class="botonNav"><a href="crear_persona.html">Nueva Persona</a></li>
+      <li class="botonNav"><a href="crear_articulo.html">Nuevo Articulo</a></li>
+      
+    </ul>
+ </div> 
+  
+  <section class="contenedorSeccion">
+    <div class="login-container">
+      <h2>Formulario de Creación de Artículo</h2>
 
-    <form action="guardar_articulo.php" method="POST">
-      <label for="detalle">Detalle de Artículo:</label>
-      <input type="text" id="detalle" name="detalle" required>
+      <form action="guardar_articulo.php" method="POST">
+        <label for="detalle">Detalle de Artículo:</label>
+        <input type="text" id="detalle" name="detalle" required>
 
-      <label for="tipo">Tipo de Artículo:</label>
-      <input type="text" id="tipo" name="tipo" required>
+        <label for="tipo">Tipo de Artículo:</label>
+        <input type="text" id="tipo" name="tipo" required>
 
-      <label for="precio">Precio de Artículo:</label>
-      <input type="number" id="precio" name="precio" required>
-
-      <label for="entrada">Entrada de Artículo:</label>
-      <input type="number" id="entrada" name="entrada" min="0">
-
-      <label for="salida">Salida de Artículo:</label>
-      <input type="number" id="salida" name="salida" min="0">
-
-      <button type="submit">Guardar Artículo</button>
-    </form>
-  </div>
-</body>
+        <label for="precio">Precio de Artículo:</label>
+        <input type="number" id="precio" name="precio" required>
+        
+        <button type="submit">Guardar Artículo</button>
+      </form>
+    </div>
+  </section>
+  </body>
 </html>
