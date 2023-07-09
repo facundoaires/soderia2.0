@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de Creación de Artículo</title>
+  <link rel="stylesheet" type="text/css" href="css/articulo.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Formulario de Creación de Artículo</h2>
+
+    <form action="guardar_articulo.php" method="POST">
+      <label for="detalle">Detalle de Artículo:</label>
+      <input type="text" id="detalle" name="detalle" required>
+
+      <label for="tipo">Tipo de Artículo:</label>
+      <input type="text" id="tipo" name="tipo" required>
+
+      <label for="precio">Precio de Artículo:</label>
+      <input type="number" id="precio" name="precio" required>
+
+      <label for="entrada">Entrada de Artículo:</label>
+      <input type="number" id="entrada" name="entrada" min="0">
+
+      <label for="salida">Salida de Artículo:</label>
+      <input type="number" id="salida" name="salida" min="0">
+
+      <button type="submit">Guardar Artículo</button>
+    </form>
+  </div>
+</body>
+</html>

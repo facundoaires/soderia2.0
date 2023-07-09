@@ -1,22 +1,22 @@
 .barraNav {
-    width: 20%;
-    background-color: #2b8ace;
-    height: 100%;
-    position: fixed;
+  width: 20%;
+  background-color: #1a2d5a;
+  height: 100%;
+  position: fixed;
+}
 
-  }
+.barraNav a {
+  border: 1px solid #ffffff;
+  display: block;
+  padding: 20px;
+  margin-top: 5px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+}
 
-  .barraNav a{
-    border:  1px solid black;
-    border-collapse: collapse;
-    display: block;
-    padding-block: 20px;
-    margin-top: 5px;
-    text-align: center;
-    color:aliceblue;
-    border-radius: 5px;
-  }
-  .barraNav a:hover{
-    background-color: black;
-  }
-   
+.barraNav a:hover {
+  background-color: #ffffff;
+  color: #1a2d5a;
+}
