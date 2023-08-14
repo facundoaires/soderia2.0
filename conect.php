@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 $servidor = "localhost";
-$base_datos = "soderia";
+$base_datos = "soderia2.0";
 $usuario = "root";
 $clave = null;
 

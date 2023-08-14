@@ -1,6 +1,12 @@
 <?php
     include("conexion.php");
     
+    //ultimo ID insertado
+    $consultaID="SELECT MAX(IDFACTURA) AS ultimo_id FROM factura";
+    $ultimoID=mysqli_query($conexion, $consultaID);
+    $row = mysqli_fetch_assoc($ultimoID);
+    $lastId = $row['ultimo_id'];
+
     $vendedor=$_REQUEST["listVendedor"];
     $fechaActual=$_REQUEST["fechaFactura"];
 
@@ -18,19 +24,20 @@
 
     $totalFactura= $cantAguaX20*$precioAguaX20 + $cantAguaX12*$precioAguaX12 + $cantSoda*$precioSoda + $cantDispenser*$precioDispenser;
 
-    $cabecera=mysqli_query($conexion, "INSERT INTO factura(IDPERSONA, FECHAFACTURA, TOTALFACTURA) VALUES ($vendedor, $fechaActual, $totalFactura)");
-
-    //ultimo ID insertado
-    $consultaID="SELECT MAX(IDFACTURA) AS ultimo_id FROM factura";
-    $ultimoID=mysqli_query($conexion, $consultaID);
-    $row = mysqli_fetch_assoc($ultimoID);
-    $lastId = $row['ultimo_id'];
+    $cabecera=mysqli_query($conexion, "INSERT INTO factura(IDFACTURA, IDPERSONA, FECHAFACTURA, TOTALFACTURA) VALUES ($lastId+1, $vendedor, $fechaActual, $totalFactura)");
 
 
-    $detalle=mysqli_query($conexion, "INSERT INTO detallefactura(IDFACTURA, IDARTICULO, CANTIDADARTICULO, PRECIOTOTALARTICULO) VALUES ($lastId, 1, $cantAguaX20, $cantAguaX20 * $precioAguaX20)");
-    $detalle=mysqli_query($conexion, "INSERT INTO detallefactura(IDFACTURA, IDARTICULO, CANTIDADARTICULO, PRECIOTOTALARTICULO) VALUES ($lastId, 2, $cantAguaX12, $cantAguaX12 * $precioAguaX12)");
-    $detalle=mysqli_query($conexion, "INSERT INTO detallefactura(IDFACTURA, IDARTICULO, CANTIDADARTICULO, PRECIOTOTALARTICULO) VALUES ($lastId, 3, $cantSoda, $cantSoda * $precioSoda)");
-    $detalle=mysqli_query($conexion, "INSERT INTO detallefactura(IDFACTURA, IDARTICULO, CANTIDADARTICULO, PRECIOTOTALARTICULO) VALUES ($lastId, 4, $cantDispenser, $cantDispenser * $precioDispenser)");
+        //ultimo ID insertado
+        $consultaID="SELECT MAX(IDFACTURA) AS ultimo_id FROM factura";
+        $ultimoID=mysqli_query($conexion, $consultaID);
+        $row = mysqli_fetch_assoc($ultimoID);
+        $lastId = $row['ultimo_id'];
+
+
+    $detalle=mysqli_query($conexion, "INSERT INTO detallefactura(IDFACTURA, IDARTICULO, CANTIDADARTICULO, PRECIOARTICULODETALLE) VALUES ($lastId, 1, $cantAguaX20, $cantAguaX20 * $precioAguaX20)");
+    $detalle=mysqli_query($conexion, "INSERT INTO detallefactura(IDFACTURA, IDARTICULO, CANTIDADARTICULO, PRECIOARTICULODETALLE) VALUES ($lastId, 2, $cantAguaX12, $cantAguaX12 * $precioAguaX12)");
+    $detalle=mysqli_query($conexion, "INSERT INTO detallefactura(IDFACTURA, IDARTICULO, CANTIDADARTICULO, PRECIOARTICULODETALLE) VALUES ($lastId, 3, $cantSoda, $cantSoda * $precioSoda)");
+    $detalle=mysqli_query($conexion, "INSERT INTO detallefactura(IDFACTURA, IDARTICULO, CANTIDADARTICULO, PRECIOARTICULODETALLE) VALUES ($lastId, 4, $cantDispenser, $cantDispenser * $precioDispenser)");
 
     mysqli_close($conexion);
 ?>

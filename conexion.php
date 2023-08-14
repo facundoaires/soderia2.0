@@ -1,6 +1,6 @@
 <?php
 $host_db="localhost";
-$nombre_db="soderia2";
+$nombre_db="soderia2.0";
 $usuario_db="root";
 $contraseña_db="";
 

@@ -1,100 +1,88 @@
 <?php
-    include("inicio.php");
-    include("conexion.php");
+	include('inicio.php');
+	include('conexion.php');
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pago Mercaderia</title>
-    <link rel="stylesheet" href="css/remito.css">
+	<link rel="stylesheet" href="css/remito.css">
+	<meta charset="utf-8">
 </head>
 <body>
-<section class="contenedorSeccion">
-    <h1>Devolucion y Rendicion</h1>
-        <hr>  
-        <table class="cabecera">
-            <tr>
-                <td>
-                    <label for="listVendedor">Vendedor: </label>
-                    <select name="listVendedor" id="listVendedor">
-                        <option value="Gaston">Gaston</option>
-                        <option value="Emilio">Emilio</option>
-                        <option value="Tobias">Tobias</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="nroRemito">Numero de Remito: </label> 1</td>
-            </tr>
-            <tr>
-                <td><label for="fechaRemito">Fecha de Emision: </label> 13/06/2023</td>
-            </tr>
-        </table>
+	<?php
+		 $vendedor=mysqli_query($conexion, "select  IDPERSONA , NOMBREPERSONA from persona");/*Busca id y nombre de los vendedores*/
+		 $articulo=mysqli_query($conexion, "select IDARTICULO , NOMBREARTICULO ,PRECIOARTICULO from articulo");/*Busca los datos de los articulos*/		  
+	?>
+	<section class="contenedorSeccion">
+	<h1>Pago de mercaderia</h1>
+	<hr>  
+	<form action="cargarPago.php" method="post">
+		<table class="cabecera">
+			<tr>
+				<td>
+					Vendedor: <?php echo $_REQUEST['vendedor'] ?><input type='hidden' id='vendedor' name='vendedor' value="<?php echo $_REQUEST['vendedor'] ?>">					
+				</td>
+			</tr>
+			<tr>
+				<td>Numero de Remito: <?php echo $_REQUEST['facturaAPagar'] ?> <input type="hidden" id="IDFactura" name="IDFactura" value="<?php echo $_REQUEST['facturaAPagar'] ?>"></td>
+			</tr>
+			<tr>
+				<td>Fecha de Emision: <?php echo $_REQUEST['fechaFactura'] ?> <input type="hidden" id="fechaFactura" name="fechaFactura" value=<?php echo $_REQUEST['fechaFactura'] ?>></td>
+			</tr>
+		</table>
 
-        <table>
-            <thead>
+		<table>
+			<thead>
                 <tr>
-                    <th>Codigo</th>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Precio unitario</th>
-                    <th>Accion</th>
+                    <th  colspan="4"><label for="dineroRendido">Dinero Rendido: </label></th>
+                    <th> <input type="text" min="0" id="dineroRendido" name="dineroRendido"></th>
                 </tr>
-                <tr>
-                    <td><label for="articulo">Seleccione el articulo</label></td>
-                    <td><select name="articulo" id="articulo">
-                        <option value="x20">Agua X20</option>
-                        <option value="x12">Agua X12</option>
-                        <option value="soda">Soda</option>
-                        <option value="dispenser">Dispenser</option>
-                        </select>
-                    </td>
-                    <td><input type="text" id="cantidadArticulo" name="cantidadArticulo" min="1"></td>
-                    <td>51000</td>
-                    <td><input type="submit" value="Agregar"></td>				
-                </tr>
-                <tr>
-                    <th>Codigo</th>
-                    <th>Producto</th>
-                    <th>Cantidad</th>
-                    <th>Precio por producto</th>
-                    <th>Accion</th>
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr>
-                    <td>1</td>
-                    <td>Agua Grande</td>
-                    <td>36</td>
-                    <td>36000</td>
-                    <td><input type="submit" value="Borrar"></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Agua Chica</td>
-                    <td>6</td>
-                    <td>3000</td>
-                    <td><input type="submit" value="Borrar"></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Soda</td>
-                    <td>12</td>
-                    <td>12000</td>
-                    <td><input type="submit" value="Borrar"></td>
-                </tr>
-            </tbody>
-        </table>
-
-        <table>
-            <tr>
-                <th><label for="dineroEntregado">Dinero Rendido: </label> <input type="text" min="0" id="dineroEntregado"></th>
-                <th><input type="submit" value="Guardar" id="botonGuardar"><input type="submit" value="Cancelar" id="botonCancelar"></th>
-            </tr>
-        </table>
-    </section>
+				<tr>
+					<th>Codigo</th>
+					<th>Producto</th>
+					<th>Cantidad</th>
+					<th>Precio por producto</th>
+					<th>Accion</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Agua Grande</td>
+					<td><input type="number" id="cantAguaGrande" name="cantAguaGrande" min="1"></td>
+					<td><?php $precioAguaX20=$precio=mysqli_fetch_row(mysqli_query($conexion, "select PRECIOARTICULO from articulo where IDARTICULO = '1'"));
+						echo "<input type='text' id='precioAguaX20' name='precioAguaX20' disable=true readonly=true value=$precioAguaX20[0]>"; ?></td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Agua Chica</td>
+					<td><input type="number" id="cantAguaChica" name="cantAguaChica" min="1"></td>
+					<td><?php $precioAguaX12=$precio=mysqli_fetch_row(mysqli_query($conexion, "select PRECIOARTICULO from articulo where IDARTICULO = '2'"));
+					    echo "<input type='text' id='precioAguaX12' name='precioAguaX12' disable=true readonly=true value=$precioAguaX12[0]>" ?></td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Soda</td>
+					<td><input type="number" id="cantSoda" name="cantSoda" min="1"></td>
+					<td><?php $precioSoda=$precio=mysqli_fetch_row(mysqli_query($conexion, "select PRECIOARTICULO from articulo where IDARTICULO = '3'")); 
+						echo "<input type='text' id='precioSoda' name='precioSoda' disable=true readonly=true value=$precioSoda[0]>" ?></td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Dispenser</td>
+					<td><input type="number" id="cantDispenser" name="cantDispenser" min="0"></td>
+					<td><?php $precioDispenser=$precio=mysqli_fetch_row(mysqli_query($conexion, "select PRECIOARTICULO from articulo where IDARTICULO = '4'")); 
+						echo "<input type='text' id='precioDispenser' name='precioDispenser' disable=true readonly=true value='$precioDispenser[0]'>";?>
+					</td>
+					<td>
+						<input type="submit">
+					</td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</form>
+	</section>	
 </body>
 </html>
