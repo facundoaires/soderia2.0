@@ -23,8 +23,8 @@ $es_cliente = isset($_POST['es_cliente']) ? 1 : 0;
 $es_vendedor = isset($_POST['es_vendedor']) ? 1 : 0;
 
 // Insertar los datos en la base de datos
-$sql = "INSERT INTO clientes (nombre, cuil, domicilio, telefono, localidad, provincia, es_cliente, es_vendedor)
-        VALUES ('$nombre', '$cuil', '$domicilio', '$telefono', '$localidad', '$provincia', '$es_cliente', '$es_vendedor')";
+$sql = "INSERT INTO clientes (nombre, cuil, domicilio, telefono, es_cliente, es_vendedor)
+        VALUES ('$nombre', '$cuil', '$domicilio', '$telefono', '$es_cliente', '$es_vendedor')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Cliente guardado exitosamente.";

@@ -1,3 +1,6 @@
+<?php
+    include('inicioSegmentado.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,9 +9,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="hola.php" method="post">
-        <input type="text" name="hola">
-        <input type="submit" value="guardar">
-    </form>
+<div class="barraNav">
+        <ul>
+          <li class="botonNav"><a  href="crear_articulo.html">Crear articulo</a></li>
+        </ul>
+    </div> 
 </body>
 </html>

@@ -11,6 +11,17 @@
 <body>
   <header>
     <div id="nombreUsuario">Administrador</div>
+
+    <div class="headernav">
+      <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Ventas</a></li>
+          <li><a href="#">Usuarios</a></li>
+          <li><a href="#">Repartidores</a></li>
+          <li><a href="#">Clientes</a></li>
+          <li><a href="#">Articulos</a></li>
+      </ul>
+    </div>
     <img src="img/LogoScherf.jpg" alt="Logo de la empresa">
   </header>
     
@@ -22,6 +33,8 @@
           <li class="botonNav"><a href="nuevo_usuario.html">Crear Nuevo Usuario</a></li>
           <li class="botonNav"><a href="crear_persona.html">Nueva Persona</a></li>
           <li class="botonNav"><a href="crear_articulo.html">Nuevo Articulo</a></li>
+          <li class="botonNav"><a href="crearPersona.php">Crear persona Facu</a></li>
+          <li class="botonNav"><a href="informePersonas.php">Informe personas Facu</a></li>
         </ul>
     </div>    
 </body>

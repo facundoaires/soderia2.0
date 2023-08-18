@@ -1,5 +1,5 @@
 <?php
-	include('inicio.php');
+	include('menuVentas.php');
 	include('conexion.php');
 ?>
 <!DOCTYPE html>

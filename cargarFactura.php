@@ -8,7 +8,7 @@
     $lastId = $row['ultimo_id'];
 
     $vendedor=$_REQUEST["listVendedor"];
-    $fechaActual=$_REQUEST["fechaFactura"];
+    $fechaActual = date("Y-m-d");
 
     $cantAguaX20=$_REQUEST["cantAguaGrande"];
     $precioAguaX20=$_REQUEST["precioAguaX20"];
@@ -24,7 +24,7 @@
 
     $totalFactura= $cantAguaX20*$precioAguaX20 + $cantAguaX12*$precioAguaX12 + $cantSoda*$precioSoda + $cantDispenser*$precioDispenser;
 
-    $cabecera=mysqli_query($conexion, "INSERT INTO factura(IDFACTURA, IDPERSONA, FECHAFACTURA, TOTALFACTURA) VALUES ($lastId+1, $vendedor, $fechaActual, $totalFactura)");
+    $cabecera=mysqli_query($conexion, "INSERT INTO factura(IDFACTURA, IDPERSONA, FECHAFACTURA, TOTALFACTURA) VALUES ($lastId+1, $vendedor, '$fechaActual', $totalFactura)");
 
 
         //ultimo ID insertado

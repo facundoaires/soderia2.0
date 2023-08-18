@@ -1,5 +1,5 @@
 <?php
-	include ('inicio.php');
+	include('menuVentas.php');
 	include('conexion.php');
 	
 	//ultimo idfactura
@@ -23,7 +23,7 @@
 		 $articulo=mysqli_query($conexion, "select IDARTICULO , NOMBREARTICULO ,PRECIOARTICULO from articulo");/*Busca los datos de los articulos*/		  
 	?>
 	<section class="contenedorSeccion">
-	<h1>Carga de mercaderia</h1>
+	<h1>Entrega de mercaderia al repartidor</h1>
 	<hr>  
 	<form action="cargarFactura.php" method="post">
 		<table class="cabecera">
@@ -41,10 +41,10 @@
 				</td>
 			</tr>
 			<tr>
-				<td><label for="nroRemito">Numero de Remito: </label><input type="text" id="IDFactura" name="IDFactura" disable="true" readonly="true" value="<?php echo $lastId+1 ?>"></td>
+				<td><label for="nroRemito">Numero de Remito: <?php echo $lastId+1 ?></label><input type="hidden" id="IDFactura" name="IDFactura" disable="true" readonly="true" value="<?php echo $lastId+1 ?>"></td>
 			</tr>
 			<tr>
-				<td><label for="fechaRemito">Fecha de Emision: </label><input type="text" id="fechaFactura" name="fechaFactura" disable="true" readonly="true" value="<?php echo $fechaActual ?>"></td>
+				<td><label for="fechaRemito">Fecha de Emision: <?php echo $fechaActual ?></label><input type="hidden" id="fechaFactura" name="fechaFactura" disable="true" readonly="true" value="<?php echo $fechaActual ?>"></td>
 			</tr>
 		</table>
 

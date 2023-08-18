@@ -18,3 +18,22 @@ header img {
   font-size: 18px;
   padding: 10px;
 }
+.headernav ul li{
+  list-style: none;
+  display: inline;
+}
+.headernav ul li a{
+
+  border: 1px solid #ffffff;
+  padding: 20px;
+  margin-top: 5px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.headernav a:hover {
+  background-color: #ffffff;
+  color: #1a2d5a;
+}
+

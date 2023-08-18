@@ -12,7 +12,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
   if(mysqli_num_rows($consulta) == 1) { // Verificar si se encontró un registro coincidente
     // Inicio de sesión exitoso
-    header("Location: inicio.php");
+    header("Location: inicioSegementado.php");
     exit();
   } else {
     // Credenciales incorrectas
