@@ -35,10 +35,10 @@
             <input type="text" id="cuil" name="cuil"><br><br>
 
             <label for="domicilio">Domicilio de persona:</label>
-            <input type="text" id="domicilio" name="domicilio" required><br><br>
+            <input type="text" id="domicilio" name="domicilio"><br><br>
 
             <label for="telefono">Teléfono de persona:</label>
-            <input type="text" id="telefono" name="telefono" required><br><br>
+            <input type="text" id="telefono" name="telefono"><br><br>
 
             <label>Tipo de persona:</label><br>
             <input type="radio" id="tipoCliente" name="tipoPersona" value="8">
@@ -48,10 +48,10 @@
             <label for="tipoVendedor">Vendedor</label><br><br>
 
             <label for="username">Usuario:</label>
-            <input type="text" name="username" id="username" required>
+            <input type="text" name="username" id="username">
 
             <label for="password">Contraseña:</label>
-            <input type="password" name="password" required>
+            <input type="password" name="password">
 
             <label for="password">Confirmar contraseña:</label>
             <input type="password" name="confirm_password">

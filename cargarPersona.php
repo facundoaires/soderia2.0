@@ -9,7 +9,7 @@
     $contrasena =$_REQUEST['password'];
     $tipoPersona=$_REQUEST['tipoPersona'];
 
-    $consulta=mysqli_query($conexion, "INSERT INTO persona(NOMBREPERSONA, IDCATEGORIAPERSONA, CUILPERSONA, DOMICILIOPERSONA, TELEFONOPERSONA, USUARIOPERSONA, CONTRASENAPERSONA) VALUES ('$nombre', $tipoPersona, $cuil, '$domicilio', $telefono, '$usuario', '$contrasena')");
+    $consulta=mysqli_query($conexion, "INSERT INTO persona(NOMBREPERSONA, IDCATEGORIAPERSONA, CUILPERSONA, DOMICILIOPERSONA, TELEFONOPERSONA, USUARIOPERSONA, CONTRASENAPERSONA) VALUES ('$nombre', '$tipoPersona', '$cuil', '$domicilio', '$telefono', '$usuario', '$contrasena')");
 
 ?>
 <!DOCTYPE html>

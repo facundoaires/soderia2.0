@@ -11,7 +11,8 @@
 <body>
 <div class="barraNav">
         <ul>
-          <li class="botonNav"><a  href="crear_articulo.html">Crear articulo</a></li>
+          <li class="botonNav"><a  href="crear_articulo.php">Crear articulo</a></li>
+          <li class="botonNav"><a  href="informeArticulos.php">Lista articulos</a></li>
         </ul>
     </div> 
 </body>
