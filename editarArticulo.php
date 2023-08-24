@@ -7,6 +7,8 @@
 
     $consulta=mysqli_query($conexion, "UPDATE articulo SET NOMBREARTICULO ='$nombre', PRECIOARTICULO=$precio WHERE IDARTICULO=$id");
 
+    header("location: informeArticulos.php");
+    exit;
 ?>
 <!DOCTYPE html>
 <html lang="en">

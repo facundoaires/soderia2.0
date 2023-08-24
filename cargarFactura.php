@@ -40,6 +40,9 @@
     $detalle=mysqli_query($conexion, "INSERT INTO detallefactura(IDFACTURA, IDARTICULO, CANTIDADARTICULO, PRECIOARTICULODETALLE) VALUES ($lastId, 4, $cantDispenser, $cantDispenser * $precioDispenser)");
 
     mysqli_close($conexion);
+    
+    header("location: entregaMercaderia.php");
+    exit;
 ?>
 <!DOCTYPE html>
 <html>

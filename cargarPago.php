@@ -38,6 +38,8 @@ $detalle=mysqli_query($conexion, "INSERT INTO detallepagofactura(IDPAGOFACTURA, 
 
 mysqli_close($conexion);
 
+    header("location: informePendientesPago.php");
+    exit;
 ?>
 
 <!DOCTYPE html>

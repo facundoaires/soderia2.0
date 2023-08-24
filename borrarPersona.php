@@ -3,6 +3,9 @@
 
     $id=$_REQUEST['id'];
     $consulta=mysqli_query($conexion, "DELETE FROM persona WHERE IDPERSONA=$id");
+    header("location: informeArticulos.php");
+    exit;
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">

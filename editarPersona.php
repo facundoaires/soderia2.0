@@ -12,6 +12,8 @@
  
     $consulta=mysqli_query($conexion, "UPDATE persona SET NOMBREPERSONA ='$nombre', IDCATEGORIAPERSONA = $tipoPersona, CUILPERSONA = $cuil, DOMICILIOPERSONA = '$domicilio', TELEFONOPERSONA = $telefono, USUARIOPERSONA = '$usuario', CONTRASENAPERSONA = '$contrasena' WHERE IDPERSONA=$id");
 
+    header("location: informePersonas.php");
+    exit;
 ?>
 <!DOCTYPE html>
 <html lang="en">

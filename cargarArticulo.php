@@ -5,6 +5,8 @@
     $precio=$_REQUEST['precioArticulo'];
 
     $consulta=mysqli_query($conexion, "INSERT INTO articulo(NOMBREARTICULO, PRECIOARTICULO) VALUES ('$nombre', $precio)");
+    header("location: crear_articulo.php");
+    exit;
 
 ?>
 <!DOCTYPE html>
