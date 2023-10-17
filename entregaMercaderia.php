@@ -16,6 +16,28 @@
 <head>
 	<link rel="stylesheet" href="css/remito.css">
 	<meta charset="utf-8">
+
+	<script>
+		function agregarFila() {
+  			// Obtén la tabla por su id
+  			var tabla = document.getElementById("detalleTabla");
+  			// Crea una nueva fila y dos celdas
+  			var fila = tabla.insertRow();
+  			var celda1 = fila.insertCell(0);
+  			var celda2 = fila.insertCell(1);
+			var celda3 = fila.insertCell(2);
+			var celda4 = fila.insertCell(3);
+			var celda5 = fila.insertCell(4);
+  			//Agrega contenido a las celdas
+  			celda1.innerHTML = "Codigo";
+			celda2.innerHTML = "Producto";
+  			celda3.innerHTML = "Cantidad";
+			celda4.innerHTML = "Precio";
+			celda5.innerHTML = "Accion";			
+		}	
+
+		
+	</script>
 </head>
 <body>
 	<?php
@@ -48,7 +70,7 @@
 			</tr>
 		</table>
 
-		<table>
+		<table id="detalleTabla">
 			<thead>
 				<tr>
 					<th>Codigo</th>
@@ -59,39 +81,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>1</td>
-					<td>Agua Grande</td>
-					<td><input type="number" id="cantAguaGrande" name="cantAguaGrande" min="1"></td>
-					<td><?php $precioAguaX20=$precio=mysqli_fetch_row(mysqli_query($conexion, "select PRECIOARTICULO from articulo where IDARTICULO = '1'"));
-						echo "<input type='text' id='precioAguaX20' name='precioAguaX20' disable=true readonly=true value=$precioAguaX20[0]>"; ?></td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>Agua Chica</td>
-					<td><input type="number" id="cantAguaChica" name="cantAguaChica" min="1"></td>
-					<td><?php $precioAguaX12=$precio=mysqli_fetch_row(mysqli_query($conexion, "select PRECIOARTICULO from articulo where IDARTICULO = '2'"));
-					    echo "<input type='text' id='precioAguaX12' name='precioAguaX12' disable=true readonly=true value=$precioAguaX12[0]>" ?></td>
-				</tr>
-				<tr>
-					<td>3</td>
-					<td>Soda</td>
-					<td><input type="number" id="cantSoda" name="cantSoda" min="1"></td>
-					<td><?php $precioSoda=$precio=mysqli_fetch_row(mysqli_query($conexion, "select PRECIOARTICULO from articulo where IDARTICULO = '3'")); 
-						echo "<input type='text' id='precioSoda' name='precioSoda' disable=true readonly=true value=$precioSoda[0]>" ?></td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>Dispenser</td>
-					<td><input type="number" id="cantDispenser" name="cantDispenser" min="0"></td>
-					<td><?php $precioDispenser=$precio=mysqli_fetch_row(mysqli_query($conexion, "select PRECIOARTICULO from articulo where IDARTICULO = '4'")); 
-						echo "<input type='text' id='precioDispenser' name='precioDispenser' disable=true readonly=true value='$precioDispenser[0]'>";?>
-					</td>
-					<td>
-						<input type="submit">
-					</td>
-				</tr>
-				
+							
 			</tbody>
 		</table>
 		<table>
@@ -100,8 +90,9 @@
 				<th></th>
 			</tr>
 		</table>
-		
 	</form>
+	<button onclick="agregarFila()">Agregar fila</button><br>
+	<button onclick="agregarBloque()">Agregar bloque</button>
 	</section>	
 </body>
 </html>

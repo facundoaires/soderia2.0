@@ -10,7 +10,7 @@
 </head>
 <body>
   <header>
-    <div id="nombreUsuario">Administrador</div>
+    <div id="nombreUsuario">Gloria</div>
 
     <div class="headernav">
       <ul>

@@ -1,0 +1,3 @@
+Para crear la base de datos en phpmyadmin importar bbdd2/soderia2_0 (2).sql
+El login todavia no es funcional, puede ingresar cualquier dato
+El borrado de los registros es fisico, por lo tanto no se pueden borrar registros que ya tuvieron movimientos
